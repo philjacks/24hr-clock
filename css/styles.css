@@ -21,7 +21,6 @@ h2 {
   letter-spacing: 4px;
   margin-bottom: 2rem;
   border-bottom: 2px solid white;
-  
 }
 
 .clock {
@@ -39,12 +38,11 @@ h2 {
   font-size: 1rem;
   display: flex;
   align-items: center;
-  padding: .2rem;
-  margin-right: .2rem;
-  border: 1px solid white;
+  padding: 0.2rem;
+  margin-right: 0.2rem;
+  border: 2px solid white;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
-
 }
 
 .number {
