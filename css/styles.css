@@ -102,9 +102,9 @@ h2 {
    ==================== */
 
 @media screen and (max-width: 730px) {
-  h2 {
-    font-size: 3rem;
-  }
+  /* h2 {
+    font-size: rem;
+  } */
 }
 @media screen and (max-width: 730px) {
   h1 {
@@ -114,7 +114,7 @@ h2 {
     transform: scale(0.75);
   }
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-top: 1rem;
   }
 }
