@@ -231,17 +231,15 @@ h2 {
 @media screen and (max-width: 800px) {
   .wrapper {
     top: 10rem;
-    transform: scale(0.9);
+
     height: auto;
   }
   #change-name-btn {
     align-self: center;
     margin: 3rem 0 0 0;
-    transform: scale(0.9);
   }
   .name-btns {
     justify-content: center;
-    transform: scale(0.9);
   }
   form {
     align-self: center;
