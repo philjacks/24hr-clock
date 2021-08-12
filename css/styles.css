@@ -4,10 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Heebo", sans-serif;
 }
 
 body {
-  font-family: "Heebo", sans-serif;
   height: 100vh;
 }
 
@@ -21,12 +21,49 @@ body {
   color: white;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+  margin-right: 3rem;
+}
+
+#name-change {
+  margin: 3rem 0 1rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  height: 2.5rem;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+#name-change::placeholder {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
+}
+#name-change:focus {
+  border: none;
+}
+
+#confirm {
+  border-radius: 50px;
+  height: 2rem;
+  width: 40%;
+  border: none;
+  font-size: 1.2rem;
+}
+#confirm:hover {
+  cursor: pointer;
+}
+
 .date-temp {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5rem 0 2rem 0;
+  margin: 1rem 0 2rem 0;
 }
 
 h1 {
@@ -63,7 +100,7 @@ h1 {
 .spin {
   animation-name: spin;
   animation-duration: 400ms;
-  animation-iteration-count: 4;
+  animation-iteration-count: 2;
   animation-timing-function: linear;
 }
 
@@ -151,10 +188,13 @@ h2 {
    ==================== */
 
 @media screen and (max-width: 730px) {
-  .date-temp {
-    margin-top: 10rem;
+  form {
+    align-self: center;
+    margin-right: 0;
   }
-
+  .date-temp {
+    margin-top: 5rem;
+  }
   .clock {
     transform: scale(0.75);
   }
