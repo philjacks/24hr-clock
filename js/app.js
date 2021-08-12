@@ -1,11 +1,14 @@
-const body = document.getElementById('body')
-const notice = document.getElementById('notice')
+// ELEMENT SELECTORS
+const body = document.getElementById("body");
+const notice = document.getElementById("notice");
+const tempRefresh = document.getElementById("temp-refresh");
 
+// GET TIME & DATE
 const startTime = () => {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.toLocaleString("default", {
-    month: "short",
+    month: "short"
   });
   const date = today.getDate();
 
@@ -31,30 +34,30 @@ const startTime = () => {
     document.getElementById("am-pm").innerHTML = "pm";
   }
 
-  changePic(hours)
-
+  changePic(hours);
 };
 
+// CHANGE BACKGROUND IMAGE AT SET TIMES
 const changePic = (hours) => {
   if (hours >= 0 && hours < 7) {
-    body.classList.add('moon')
-    notice.innerHTML = `You should be sleeping, Phil`
+    body.classList.add("moon");
+    notice.innerHTML = `You should be sleeping, Phil`;
   } else if (hours >= 7 && hours < 12) {
-    body.classList.remove('moon')
-    body.classList.add('morning-village')
-    notice.innerHTML = `Good morning, Phil`
+    body.classList.remove("moon");
+    body.classList.add("morning-village");
+    notice.innerHTML = `Good morning, Phil`;
   } else if (hours >= 12 && hours < 19) {
-    body.classList.remove('morning-village')
-    body.classList.add('afternoon-stream')
-    notice.innerHTML = `Good afternoon, Phil`
+    body.classList.remove("morning-village");
+    body.classList.add("afternoon-stream");
+    notice.innerHTML = `Good afternoon, Phil`;
   } else if (hours >= 19) {
-    body.classList.remove('afternoon-stream')
-    body.classList.add('night-street')
-    notice.innerHTML = `Good evening, Phil`
+    body.classList.remove("afternoon-stream");
+    body.classList.add("night-street");
+    notice.innerHTML = `Good evening, Phil`;
   }
-}
+};
 
-
+// ADD ZERO TO HOUR DISPLAY WHEN NEEDED
 const checkTime = (i) => {
   if (i < 10) {
     i = "0" + i;
@@ -63,3 +66,40 @@ const checkTime = (i) => {
 };
 window.addEventListener("load", startTime);
 
+// RETURN TEMPERATURE FROM THIRD PARTY API
+const getTemp = async () => {
+  const response = await fetch(
+    `https://dark-sky.p.rapidapi.com/53.483959,-2.244644?lang=en&units=auto`,
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "154d28321dmshef816df30582daep125366jsne132ed97e91c",
+        "x-rapidapi-host": "dark-sky.p.rapidapi.com"
+      }
+    }
+  );
+
+  if (response.status === 200) {
+    const data = await response.json();
+
+    return data.currently.temperature;
+  } else {
+    throw new Error(`Unable to get temperature`);
+  }
+};
+
+const displayTemp = async () => {
+  const temp = await getTemp();
+
+  document.getElementById("temp-num").innerHTML = `${Math.round(
+    temp.toString()
+  )}`;
+};
+
+displayTemp();
+
+// UPDATE TEMPERATURE WHEN REFRESH BUTTON IS CLICKED
+tempRefresh.addEventListener("click", () => {
+  displayTemp();
+  tempRefresh.classList.toggle("spin");
+});

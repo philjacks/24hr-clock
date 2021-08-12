@@ -21,10 +21,59 @@ body {
   color: white;
 }
 
+.date-temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0 2rem 0;
+}
+
 h1 {
   letter-spacing: 4px;
-  margin: 5rem 0 2rem 0;
+  align-self: center;
   border-bottom: 2px solid white;
+}
+
+#temp-container {
+  display: flex;
+  margin: 0 0 0.5rem 1rem;
+  position: relative;
+  right: 0;
+}
+
+#temp-num {
+  top: 0;
+  font-size: 2rem;
+  margin-right: 3px;
+}
+
+#temp-refresh {
+  background: transparent;
+
+  border: none;
+  position: relative;
+  bottom: -30px;
+  right: 8px;
+}
+#temp-refresh:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.spin {
+  animation-name: spin;
+  animation-duration: 400ms;
+  animation-iteration-count: 4;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 .clock {
@@ -69,32 +118,32 @@ h2 {
 .morning-village {
   background-image: url("../img/morning-village.jpg");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  transition: all 1s;
 }
 .afternoon-stream {
   background-color: rgba(0, 0, 0, 0.1);
   background-image: url("../img/afternoon-stream.jpg");
   background-blend-mode: multiply;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  transition: all 1s;
 }
 .night-street {
   background-color: rgba(0, 0, 0, 0.4);
   background-image: url("../img/night-street.jpg");
   background-blend-mode: multiply;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  transition: all 1s;
 }
 .moon {
   background-color: rgba(0, 0, 0, 0.2);
   background-image: url("../img/moon.jpeg");
   background-blend-mode: multiply;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  transition: all 1s;
 }
 
 /* ====================
@@ -102,14 +151,10 @@ h2 {
    ==================== */
 
 @media screen and (max-width: 730px) {
-  /* h2 {
-    font-size: rem;
-  } */
-}
-@media screen and (max-width: 730px) {
-  h1 {
+  .date-temp {
     margin-top: 10rem;
   }
+
   .clock {
     transform: scale(0.75);
   }

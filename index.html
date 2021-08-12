@@ -9,8 +9,22 @@
   </head>
   <body id="body">
     <div class="container">
-      <h1 id="date">24HR CLOCK</h1>
-      <div id="test"></div>
+      <div class="date-temp">
+        <div id="temp-container">
+          <p id="temp-num">15</p>
+          <img src="img/degrees-c-white.png" alt="" width="8px" height="8px" />
+
+          <img
+            src="img/refresh-button.png"
+            alt=""
+            width="15px"
+            height="12px"
+            id="temp-refresh"
+            class=""
+          />
+        </div>
+        <h1 id="date">24HR CLOCK</h1>
+      </div>
 
       <div class="clock">
         <div id="am-pm"></div>
@@ -26,6 +40,7 @@
       </div>
     </div>
 
+    <script src="js/request.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
