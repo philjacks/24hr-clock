@@ -5,54 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>24hr Clock | Phil Jacks</title>
+    <title>Time N Temp | Phil Jacks</title>
   </head>
   <body id="body">
     <div class="container">
-      <form>
+      <form class="hidden">
         <input
           id="name-change"
           name="nameChange"
           type="text"
-          placeholder=" Change name"
+          placeholder=" Type name"
         />
-        <input type="submit" id="confirm" value="OK" />
-      </form>
-
-      <div class="date-temp">
-        <div id="temp-container">
-          <p id="temp-num">22</p>
-
-          <img src="img/degrees-c-white.png" alt="" width="8px" height="8px" />
-
-          <img
-            src="img/refresh-button.png"
-            alt=""
-            width="15px"
-            height="12px"
-            id="temp-refresh"
-            class=""
-          />
-          <p>Manchester</p>
+        <div class="name-btns">
+          <button type="button" class="confirm" id="cancel-btn">
+            Cancel
+          </button>
+          <input type="submit" class="confirm" id="ok-btn" value="OK" />
         </div>
-        <h1 id="date">24HR CLOCK</h1>
-      </div>
+      </form>
+      <button id="change-name-btn">Change Name</button>
 
-      <div class="clock">
-        <div id="am-pm"></div>
-        <div id="hours" class="number"></div>
-        <div class="colon">:</div>
-        <div id="mins" class="number"></div>
-        <div class="colon">:</div>
-        <div id="secs" class="number"></div>
-      </div>
+      <div class="wrapper">
+        <div class="date-temp">
+          <div id="temp-container">
+            <p id="temp-num"></p>
 
-      <div>
-        <h2 id="notice"></h2>
+            <img
+              src="img/degrees-c-white.png"
+              alt=""
+              width="8px"
+              height="8px"
+            />
+
+            <img
+              src="img/refresh-button.png"
+              alt=""
+              width="15px"
+              height="12px"
+              id="temp-refresh"
+              class=""
+            />
+            <p>Manchester</p>
+          </div>
+          <h1 id="date">24HR CLOCK</h1>
+        </div>
+
+        <div class="clock">
+          <div id="am-pm"></div>
+          <div id="hours" class="number"></div>
+          <div class="colon">:</div>
+          <div id="mins" class="number"></div>
+          <div class="colon">:</div>
+          <div id="secs" class="number"></div>
+        </div>
+
+        <div>
+          <h2 id="notice"></h2>
+        </div>
       </div>
     </div>
 
-    <script src="js/request.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
