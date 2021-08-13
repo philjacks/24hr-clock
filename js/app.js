@@ -158,5 +158,11 @@ displayTemp();
 // UPDATE TEMPERATURE WHEN REFRESH BUTTON IS CLICKED
 tempRefresh.addEventListener("click", () => {
   displayTemp();
-  tempRefresh.classList.toggle("spin");
+  tempRefresh.classList.add("spin");
+
+  const removeSpinClass = () => {
+    tempRefresh.classList.remove("spin");
+  };
+
+  setTimeout(removeSpinClass, 400);
 });
